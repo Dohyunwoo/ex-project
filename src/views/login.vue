@@ -37,19 +37,19 @@
   </v-container>
 </template>
 <script>
-import { mapState, mapAction } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       email: null,
-      password: null,
+      password: null
     };
   },
   computed: {
-    ...mapState(["isLogin", "isLoginError"]),
+    ...mapState(["isLogin", "isLoginError"])
   },
   methods: {
-    ...mapAction(["login"]),
-  },
+    ...mapActions(["login"])
+  }
 };
 </script>

@@ -12,17 +12,17 @@ export default new Vuex.Store({
         id: 1,
         name: "junsoo",
         email: "junsoo@dssc.mil.kr",
-        password: "1234",
+        password: "1234"
       },
       {
         id: 1,
         name: "junsoo",
         email: "wooodmon@naver.com",
-        password: "1234",
-      },
+        password: "1234"
+      }
     ],
     isLogin: false,
-    isLoginError: false,
+    isLoginError: false
   },
   mutations: {
     //로그인 성공
@@ -39,14 +39,14 @@ export default new Vuex.Store({
       state.isLogin = false;
       state.isLoginError = false;
       state.userInfo = null;
-    },
+    }
     //로그인 실패
   }, //state 상태값 변경
   actions: {
     //로그인 시도
     login({ state, commit }, loginObj) {
       let selectedUser = null;
-      state.allUsers.forEach((user) => {
+      state.allUsers.forEach(user => {
         if (user.email == loginObj.email) selectedUser = user;
       });
       if (selectedUser === null || selectedUser.password !== loginObj.password)
@@ -59,7 +59,7 @@ export default new Vuex.Store({
     logout({ commit }) {
       commit("logout");
       router.push({ name: "home" });
-    },
+    }
   }, // 비지니스 로직
-  modules: {},
+  modules: {}
 });

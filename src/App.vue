@@ -40,8 +40,8 @@
       <v-toolbar-title>Application</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-menu offset-y v-if="isLogin">
-          <v-btn flat dark slot="activator">
+        <v-menu offset-y v-if="isLogin" v-slot:activator="{ on }">
+          <v-btn text dark v-on="on">
             <v-icon>more-vert</v-icon>
           </v-btn>
           <v-list>
@@ -55,7 +55,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-btn flat v-else router :to="{ name: 'login' }">로그인</v-btn>
+        <v-btn text v-else router :to="{ name: 'login' }">로그인</v-btn>
       </v-toolbar-items>
     </v-app-bar>
 
@@ -72,24 +72,13 @@
 import { mapState } from "vuex";
 export default {
   props: {
-    source: String,
+    source: String
   },
   computed: {
-    ...mapState(["isLogin"]),
+    ...mapState(["isLogin"])
   },
   data: () => ({
-    drawer: null,
-  }),
-};
-</script>
-
-<script>
-export default {
-  props: {
-    source: String,
-  },
-  data: () => ({
-    drawer: null,
-  }),
+    drawer: null
+  })
 };
 </script>
